@@ -1,14 +1,13 @@
+{% extends 'meetups/base.html' %}
 {% load static %} 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meetups</title>
+
+    {% block title %} Meetups {% endblock title %}
+
+    {% block css %}
     <link rel="stylesheet" href="{% static 'meetups/css/base.css' %}">
     <link rel="stylesheet" href="{% static 'meetups/css/all-meetups.css' %}">
-</head>
-<body>
+    {% endblock css %}
+
     <!-- <h1>Hello World!</h1>
     <p>This is the meetups webpage</p>
         {% if condition %}
@@ -18,6 +17,7 @@
         {% else %}
             <li>No meetups available</li>
         {% endif %} -->
+{% block body %}
         <header id="main-header">
             <nav><a href="/meetups" id="main-logo"> Django Meetups</a> </nav>
             <h1>We got great meetups coming up!</h1>
@@ -28,25 +28,9 @@
                 <h2>Upcoming Meetups</h2>
                 <ol>
                     {% for meetup in meetups %}
-                        <li class='meetup-item'>
-                            <article>
-                                <div class="meetup-summary">
-                                    <div class="meetup-image">
-                                        <img src="" alt="">
-                                    </div>
-                                    <div class="meetup-details">
-                                        <h3>{{meetup.title}}</h3>
-                                        <address>{{meetup.location}}</address>
-                                    </div>
-                                </div>
-                                <div class="meetup-actions">
-                                    <a href="" class="btn"> More Details</a>
-                                </div>
-                            </article>
-                        </li>
+                        {% include 'meetups/includes/meetup-item.html' with title=meetup.title location=meetup.location %}
                     {% endfor %}
                 </ol>
             </section>
         </main>
-</body>
-</html>
+{% endblock body %}

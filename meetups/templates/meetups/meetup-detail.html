@@ -1,14 +1,13 @@
+{% extends 'meetups/base.html' %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{meetup_detail.title}}</title>
+{% block title %} {{meetup_detail.title}} {% endblock title %}
+{% block css %}
     <link rel="stylesheet" href="{% static 'meetups/css/base.css' %}">
     <link rel="stylesheet" href="{% static 'meetups/css/meetup-details.css' %}">
-</head>
-<body>
+{% endblock css %}
+
+{% block body %}
     <main>
         <article>
             <img src="" alt="">
@@ -31,5 +30,4 @@
             </section>
         </article>
     </main>
-</body>
-</html>
+{% endblock body %}
