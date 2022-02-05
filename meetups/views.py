@@ -12,3 +12,14 @@ def index(request):
         {'title': 'A Second meetup', 'location': 'Lagos', 'slug': 'a-second-meetup'},
     ]
     return render(request, 'meetups/index.html', {'meetups' : meetups, 'condition': False})
+
+
+def meetup_details(request, meetup_slug):
+    selected_meetup = {
+        'title': 'A first Meetup',
+        'desc': 'This is our first meetup'
+        }
+    return render(request, 'meetups/meetup-detail.html', {
+        'meetup_detail': selected_meetup
+    })
+    
