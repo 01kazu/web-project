@@ -1,0 +1,15 @@
+{% extends 'meetups/base.html' %}
+{% load static %} 
+
+    {% block title %} Confirmation | {{confirm}} {% endblock title %}
+
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'meetups/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'meetups/css/all-meetups.css' %}">
+    {% endblock css %}
+
+    {% block body %} 
+
+    <h1>Congratulations, You have registered to the {{meetup.title}} located in {{meetup.location}} </h1>
+
+    {% endblock body %}
