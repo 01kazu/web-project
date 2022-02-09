@@ -6,5 +6,6 @@ from . import views
 # Always add a "/" to the end of the url name because i
 urlpatterns = [
     path('meetups/', views.index, name='all-meetups'),
-    path('meetups/<slug:meetup_slug>', views.meetup_details, name='meetup-detail')
+    path('meetups/<slug:meetup_slug>', views.meetup_details, name='meetup-detail'),
+    path('meetups/<slug:meetup_slug>/<str:confirm>', views.meetup_confirmation, name='meetup-confirmation' ),
 ]
